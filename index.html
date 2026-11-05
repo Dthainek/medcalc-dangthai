@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedCalc Äáº·ng ThÃ¡i - CÃ´ng Cá»¥ TÃ­nh Äiá»ƒm & Chá»‰ Sá»‘ Y Khoa</title>
+  <title>MedCalc &#272;&#7863;ng Th&#225;i - C&#244;ng C&#7909; T&#237;nh &#272;i&#7875;m & Ch&#7881; S&#7889; Y Khoa</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome Icons -->
@@ -23,29 +23,29 @@
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
-  <!-- Navigation Tabs (Tá»‘i Æ°u khÃ´ng gian hiá»ƒn thá»‹) -->
+  <!-- Navigation Tabs (T&#7889;i &#432;u kh&#244;ng gian hi&#7875;n th&#7883;) -->
   <div class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
       <nav class="flex space-x-2 overflow-x-auto py-2 scrollbar-none" id="tabs">
         <button onclick="switchTab('sofa')" class="tab-btn active px-3.5 py-1.5 rounded-lg font-medium text-xs sm:text-sm border border-slate-200 transition-all flex items-center space-x-1.5 whitespace-nowrap">
           <i class="fa-solid fa-hospital-user"></i>
-          <span>Thang Ä‘iá»ƒm SOFA & qSOFA</span>
+          <span>Thang &#273;i&#7875;m SOFA & qSOFA</span>
         </button>
         <button onclick="switchTab('egfr')" class="tab-btn px-3.5 py-1.5 rounded-lg font-medium text-xs sm:text-sm text-slate-600 hover:bg-slate-50 border border-transparent transition-all flex items-center space-x-1.5 whitespace-nowrap">
           <i class="fa-solid fa-vial"></i>
-          <span>Má»©c Lá»c Cáº§u Tháº­n (eGFR)</span>
+          <span>M&#7913;c L&#7885;c C&#7847;u Th&#7853;n (eGFR)</span>
         </button>
         <button onclick="switchTab('bmi')" class="tab-btn px-3.5 py-1.5 rounded-lg font-medium text-xs sm:text-sm text-slate-600 hover:bg-slate-50 border border-transparent transition-all flex items-center space-x-1.5 whitespace-nowrap">
           <i class="fa-solid fa-weight-scale"></i>
-          <span>BMI & CÃ¢n Náº·ng LÃ½ TÆ°á»Ÿng</span>
+          <span>BMI & C&#226;n N&#7863;ng L&#253; T&#432;&#7903;ng</span>
         </button>
         <button onclick="switchTab('map')" class="tab-btn px-3.5 py-1.5 rounded-lg font-medium text-xs sm:text-sm text-slate-600 hover:bg-slate-50 border border-transparent transition-all flex items-center space-x-1.5 whitespace-nowrap">
           <i class="fa-solid fa-stethoscope"></i>
-          <span>Huyáº¿t Ãp Trung BÃ¬nh (MAP)</span>
+          <span>Huy&#7871;t &#193;p Trung B&#236;nh (MAP)</span>
         </button>
       </nav>
       <div class="hidden sm:flex items-center text-xs font-semibold text-slate-500 pl-2">
-        <i class="fa-solid fa-heart-pulse text-sky-600 mr-1.5"></i> MedCalc Äáº·ng ThÃ¡i
+        <i class="fa-solid fa-heart-pulse text-sky-600 mr-1.5"></i> MedCalc &#272;&#7863;ng Th&#225;i
       </div>
     </div>
   </div>
@@ -62,95 +62,95 @@
             <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
               <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
                 <i class="fa-solid fa-notes-medical text-sky-600"></i>
-                ÄÃ¡nh giÃ¡ suy Ä‘a táº¡ng SOFA (Sequential Organ Failure Assessment)
+                &#272;&#225;nh gi&#225; suy &#273;a t&#7841;ng SOFA (Sequential Organ Failure Assessment)
               </h2>
               <button onclick="resetSOFA()" class="text-xs text-slate-400 hover:text-sky-600 flex items-center gap-1">
-                <i class="fa-solid fa-rotate-left"></i> Äáº·t láº¡i
+                <i class="fa-solid fa-rotate-left"></i> &#272;&#7863;t l&#7841;i
               </button>
             </div>
 
             <div class="space-y-4">
-              <!-- 1. HÃ´ háº¥p -->
+              <!-- 1. H&#244; h&#7845;p -->
               <div>
                 <label class="block text-xs font-semibold uppercase text-slate-600 mb-1.5">
-                  1. HÃ´ háº¥p (PaOâ‚‚/FiOâ‚‚ mmHg)
+                  1. H&#244; h&#7845;p (PaO&#8322;/FiO&#8322; mmHg)
                 </label>
                 <select id="sofa_resp" onchange="calculateSOFA()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
-                  <option value="0">â‰¥ 400 (0 Ä‘iá»ƒm)</option>
-                  <option value="1">&lt; 400 (1 Ä‘iá»ƒm)</option>
-                  <option value="2">&lt; 300 (2 Ä‘iá»ƒm)</option>
-                  <option value="3">&lt; 200 kÃ¨m há»— trá»£ thá»Ÿ mÃ¡y (3 Ä‘iá»ƒm)</option>
-                  <option value="4">&lt; 100 kÃ¨m há»— trá»£ thá»Ÿ mÃ¡y (4 Ä‘iá»ƒm)</option>
+                  <option value="0">&#8805; 400 (0 &#273;i&#7875;m)</option>
+                  <option value="1">&lt; 400 (1 &#273;i&#7875;m)</option>
+                  <option value="2">&lt; 300 (2 &#273;i&#7875;m)</option>
+                  <option value="3">&lt; 200 k&#232;m h&#7895; tr&#7907; th&#7903; m&#225;y (3 &#273;i&#7875;m)</option>
+                  <option value="4">&lt; 100 k&#232;m h&#7895; tr&#7907; th&#7903; m&#225;y (4 &#273;i&#7875;m)</option>
                 </select>
               </div>
 
-              <!-- 2. ÄÃ´ng mÃ¡u -->
+              <!-- 2. &#272;&#244;ng m&#225;u -->
               <div>
                 <label class="block text-xs font-semibold uppercase text-slate-600 mb-1.5">
-                  2. ÄÃ´ng mÃ¡u (Tiá»ƒu cáº§u Ã— 10Â³/ÂµL)
+                  2. &#272;&#244;ng m&#225;u (Ti&#7875;u c&#7847;u &#215; 10&#179;/&#181;L)
                 </label>
                 <select id="sofa_coag" onchange="calculateSOFA()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
-                  <option value="0">â‰¥ 150 (0 Ä‘iá»ƒm)</option>
-                  <option value="1">100 - &lt; 150 (1 Ä‘iá»ƒm)</option>
-                  <option value="2">50 - &lt; 100 (2 Ä‘iá»ƒm)</option>
-                  <option value="3">20 - &lt; 50 (3 Ä‘iá»ƒm)</option>
-                  <option value="4">&lt; 20 (4 Ä‘iá»ƒm)</option>
+                  <option value="0">&#8805; 150 (0 &#273;i&#7875;m)</option>
+                  <option value="1">100 - &lt; 150 (1 &#273;i&#7875;m)</option>
+                  <option value="2">50 - &lt; 100 (2 &#273;i&#7875;m)</option>
+                  <option value="3">20 - &lt; 50 (3 &#273;i&#7875;m)</option>
+                  <option value="4">&lt; 20 (4 &#273;i&#7875;m)</option>
                 </select>
               </div>
 
               <!-- 3. Gan -->
               <div>
                 <label class="block text-xs font-semibold uppercase text-slate-600 mb-1.5">
-                  3. Gan (Bilirubin toÃ n pháº§n)
+                  3. Gan (Bilirubin to&#224;n ph&#7847;n)
                 </label>
                 <select id="sofa_liver" onchange="calculateSOFA()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
-                  <option value="0">&lt; 20 Âµmol/L (&lt; 1.2 mg/dL) (0 Ä‘iá»ƒm)</option>
-                  <option value="1">20 - 32 Âµmol/L (1.2 - 1.9 mg/dL) (1 Ä‘iá»ƒm)</option>
-                  <option value="2">33 - 101 Âµmol/L (2.0 - 5.9 mg/dL) (2 Ä‘iá»ƒm)</option>
-                  <option value="3">102 - 204 Âµmol/L (6.0 - 11.9 mg/dL) (3 Ä‘iá»ƒm)</option>
-                  <option value="4">&gt; 204 Âµmol/L (&gt; 12.0 mg/dL) (4 Ä‘iá»ƒm)</option>
+                  <option value="0">&lt; 20 &#181;mol/L (&lt; 1.2 mg/dL) (0 &#273;i&#7875;m)</option>
+                  <option value="1">20 - 32 &#181;mol/L (1.2 - 1.9 mg/dL) (1 &#273;i&#7875;m)</option>
+                  <option value="2">33 - 101 &#181;mol/L (2.0 - 5.9 mg/dL) (2 &#273;i&#7875;m)</option>
+                  <option value="3">102 - 204 &#181;mol/L (6.0 - 11.9 mg/dL) (3 &#273;i&#7875;m)</option>
+                  <option value="4">&gt; 204 &#181;mol/L (&gt; 12.0 mg/dL) (4 &#273;i&#7875;m)</option>
                 </select>
               </div>
 
-              <!-- 4. Tim máº¡ch -->
+              <!-- 4. Tim m&#7841;ch -->
               <div>
                 <label class="block text-xs font-semibold uppercase text-slate-600 mb-1.5">
-                  4. Tim máº¡ch (Huyáº¿t Ã¡p & Thuá»‘c váº­n máº¡ch)
+                  4. Tim m&#7841;ch (Huy&#7871;t &#225;p & Thu&#7889;c v&#7853;n m&#7841;ch)
                 </label>
                 <select id="sofa_cardio" onchange="calculateSOFA()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
-                  <option value="0">MAP â‰¥ 70 mmHg (0 Ä‘iá»ƒm)</option>
-                  <option value="1">MAP &lt; 70 mmHg (1 Ä‘iá»ƒm)</option>
-                  <option value="2">Dopamine â‰¤ 5 Âµg/kg/phÃºt hoáº·c Dobutamine báº¥t ká»³ liá»u (2 Ä‘iá»ƒm)</option>
-                  <option value="3">Dopamine &gt; 5 HOáº¶C Epinephrine â‰¤ 0.1 HOáº¶C Norepinephrine â‰¤ 0.1 Âµg/kg/phÃºt (3 Ä‘iá»ƒm)</option>
-                  <option value="4">Dopamine &gt; 15 HOáº¶C Epinephrine &gt; 0.1 HOáº¶C Norepinephrine &gt; 0.1 Âµg/kg/phÃºt (4 Ä‘iá»ƒm)</option>
+                  <option value="0">MAP &#8805; 70 mmHg (0 &#273;i&#7875;m)</option>
+                  <option value="1">MAP &lt; 70 mmHg (1 &#273;i&#7875;m)</option>
+                  <option value="2">Dopamine &#8804; 5 &#181;g/kg/ph&#250;t ho&#7863;c Dobutamine b&#7845;t k&#7923; li&#7873;u (2 &#273;i&#7875;m)</option>
+                  <option value="3">Dopamine &gt; 5 HO&#7862;C Epinephrine &#8804; 0.1 HO&#7862;C Norepinephrine &#8804; 0.1 &#181;g/kg/ph&#250;t (3 &#273;i&#7875;m)</option>
+                  <option value="4">Dopamine &gt; 15 HO&#7862;C Epinephrine &gt; 0.1 HO&#7862;C Norepinephrine &gt; 0.1 &#181;g/kg/ph&#250;t (4 &#273;i&#7875;m)</option>
                 </select>
               </div>
 
-              <!-- 5. Tháº§n kinh (GCS) -->
+              <!-- 5. Th&#7847;n kinh (GCS) -->
               <div>
                 <label class="block text-xs font-semibold uppercase text-slate-600 mb-1.5">
-                  5. Tháº§n kinh trung Æ°Æ¡ng (Thang Ä‘iá»ƒm Glasgow - GCS)
+                  5. Th&#7847;n kinh trung &#432;&#417;ng (Thang &#273;i&#7875;m Glasgow - GCS)
                 </label>
                 <select id="sofa_cns" onchange="calculateSOFA()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
-                  <option value="0">GCS 15 Ä‘iá»ƒm (0 Ä‘iá»ƒm)</option>
-                  <option value="1">GCS 13 - 14 Ä‘iá»ƒm (1 Ä‘iá»ƒm)</option>
-                  <option value="2">GCS 10 - 12 Ä‘iá»ƒm (2 Ä‘iá»ƒm)</option>
-                  <option value="3">GCS 6 - 9 Ä‘iá»ƒm (3 Ä‘iá»ƒm)</option>
-                  <option value="4">GCS &lt; 6 Ä‘iá»ƒm (4 Ä‘iá»ƒm)</option>
+                  <option value="0">GCS 15 &#273;i&#7875;m (0 &#273;i&#7875;m)</option>
+                  <option value="1">GCS 13 - 14 &#273;i&#7875;m (1 &#273;i&#7875;m)</option>
+                  <option value="2">GCS 10 - 12 &#273;i&#7875;m (2 &#273;i&#7875;m)</option>
+                  <option value="3">GCS 6 - 9 &#273;i&#7875;m (3 &#273;i&#7875;m)</option>
+                  <option value="4">GCS &lt; 6 &#273;i&#7875;m (4 &#273;i&#7875;m)</option>
                 </select>
               </div>
 
-              <!-- 6. Tháº­n -->
+              <!-- 6. Th&#7853;n -->
               <div>
                 <label class="block text-xs font-semibold uppercase text-slate-600 mb-1.5">
-                  6. Tháº­n (Creatinine huyáº¿t thanh hoáº·c NÆ°á»›c tiá»ƒu)
+                  6. Th&#7853;n (Creatinine huy&#7871;t thanh ho&#7863;c N&#432;&#7899;c ti&#7875;u)
                 </label>
                 <select id="sofa_renal" onchange="calculateSOFA()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
-                  <option value="0">Creatinine &lt; 110 Âµmol/L (&lt; 1.2 mg/dL) (0 Ä‘iá»ƒm)</option>
-                  <option value="1">Creatinine 110 - 170 Âµmol/L (1.2 - 1.9 mg/dL) (1 Ä‘iá»ƒm)</option>
-                  <option value="2">Creatinine 171 - 299 Âµmol/L (2.0 - 3.4 mg/dL) (2 Ä‘iá»ƒm)</option>
-                  <option value="3">Creatinine 300 - 440 Âµmol/L HOáº¶C NÆ°á»›c tiá»ƒu &lt; 500 mL/ngÃ y (3 Ä‘iá»ƒm)</option>
-                  <option value="4">Creatinine &gt; 440 Âµmol/L HOáº¶C NÆ°á»›c tiá»ƒu &lt; 200 mL/ngÃ y (4 Ä‘iá»ƒm)</option>
+                  <option value="0">Creatinine &lt; 110 &#181;mol/L (&lt; 1.2 mg/dL) (0 &#273;i&#7875;m)</option>
+                  <option value="1">Creatinine 110 - 170 &#181;mol/L (1.2 - 1.9 mg/dL) (1 &#273;i&#7875;m)</option>
+                  <option value="2">Creatinine 171 - 299 &#181;mol/L (2.0 - 3.4 mg/dL) (2 &#273;i&#7875;m)</option>
+                  <option value="3">Creatinine 300 - 440 &#181;mol/L HO&#7862;C N&#432;&#7899;c ti&#7875;u &lt; 500 mL/ng&#224;y (3 &#273;i&#7875;m)</option>
+                  <option value="4">Creatinine &gt; 440 &#181;mol/L HO&#7862;C N&#432;&#7899;c ti&#7875;u &lt; 200 mL/ng&#224;y (4 &#273;i&#7875;m)</option>
                 </select>
               </div>
             </div>
@@ -160,21 +160,21 @@
           <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
             <h2 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
               <i class="fa-solid fa-bolt text-amber-500"></i>
-              SÃ ng lá»c nhanh táº¡i giÆ°á»ng: qSOFA Score (Quick SOFA)
+              S&#224;ng l&#7885;c nhanh t&#7841;i gi&#432;&#7901;ng: qSOFA Score (Quick SOFA)
             </h2>
-            <p class="text-xs text-slate-500 mb-3">DÃ¹ng Ä‘Ã¡nh giÃ¡ nhanh bá»‡nh nhÃ¢n nghi ngá» nhiá»…m trÃ¹ng ngoÃ i khoa Há»“i sá»©c cáº¥p cá»©u (ICU).</p>
+            <p class="text-xs text-slate-500 mb-3">D&#249;ng &#273;&#225;nh gi&#225; nhanh b&#7879;nh nh&#226;n nghi ng&#7901; nhi&#7877;m tr&#249;ng ngo&#224;i khoa H&#7891;i s&#7913;c c&#7845;p c&#7913;u (ICU).</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
               <label class="flex items-center p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
                 <input type="checkbox" id="qsofa_rr" onchange="calcQSOFA()" class="w-4 h-4 text-sky-600 rounded">
-                <span class="ml-2.5 text-xs font-medium text-slate-700">Nhá»‹p thá»Ÿ â‰¥ 22 láº§n/phÃºt (+1)</span>
+                <span class="ml-2.5 text-xs font-medium text-slate-700">Nh&#7883;p th&#7903; &#8805; 22 l&#7847;n/ph&#250;t (+1)</span>
               </label>
               <label class="flex items-center p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
                 <input type="checkbox" id="qsofa_gcs" onchange="calcQSOFA()" class="w-4 h-4 text-sky-600 rounded">
-                <span class="ml-2.5 text-xs font-medium text-slate-700">Rá»‘i loáº¡n Ã½ thá»©c GCS &lt; 15 (+1)</span>
+                <span class="ml-2.5 text-xs font-medium text-slate-700">R&#7889;i lo&#7841;n &#253; th&#7913;c GCS &lt; 15 (+1)</span>
               </label>
               <label class="flex items-center p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
                 <input type="checkbox" id="qsofa_sbp" onchange="calcQSOFA()" class="w-4 h-4 text-sky-600 rounded">
-                <span class="ml-2.5 text-xs font-medium text-slate-700">Huyáº¿t Ã¡p tÃ¢m thu â‰¤ 100 mmHg (+1)</span>
+                <span class="ml-2.5 text-xs font-medium text-slate-700">Huy&#7871;t &#225;p t&#226;m thu &#8804; 100 mmHg (+1)</span>
               </label>
             </div>
           </div>
@@ -183,92 +183,92 @@
         <!-- Result Card SOFA -->
         <div class="space-y-5">
           <div class="bg-gradient-to-br from-slate-900 to-sky-950 text-white rounded-2xl p-6 shadow-xl sticky top-14">
-            <div class="text-xs uppercase tracking-wider font-semibold text-sky-300 mb-2">Káº¿t Quáº£ Äiá»ƒm SOFA</div>
+            <div class="text-xs uppercase tracking-wider font-semibold text-sky-300 mb-2">K&#7871;t Qu&#7843; &#272;i&#7875;m SOFA</div>
             <div class="flex items-baseline space-x-2">
               <span id="sofa_total" class="text-5xl font-extrabold text-white">0</span>
-              <span class="text-slate-400 font-medium">/ 24 Ä‘iá»ƒm</span>
+              <span class="text-slate-400 font-medium">/ 24 &#273;i&#7875;m</span>
             </div>
             
             <div class="mt-4 pt-4 border-t border-slate-700/60">
-              <div class="text-xs text-slate-300 font-medium mb-1">Tá»‰ lá»‡ tá»­ vong ICU Æ°á»›c tÃ­nh:</div>
+              <div class="text-xs text-slate-300 font-medium mb-1">T&#7881; l&#7879; t&#7917; vong ICU &#432;&#7899;c t&#237;nh:</div>
               <div id="sofa_mortality" class="text-lg font-bold text-emerald-400">&lt; 3.3%</div>
             </div>
 
             <div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 leading-relaxed" id="sofa_interpretation">
-              Äiá»ƒm SOFA â‰¤ 1: Chá»©c nÄƒng cÃ¡c há»‡ cÆ¡ quan bÃ¬nh thÆ°á»ng hoáº·c suy giáº£m ráº¥t nháº¹.
+              &#272;i&#7875;m SOFA &#8804; 1: Ch&#7913;c n&#259;ng c&#225;c h&#7879; c&#417; quan b&#236;nh th&#432;&#7901;ng ho&#7863;c suy gi&#7843;m r&#7845;t nh&#7865;.
             </div>
 
             <!-- qSOFA box inside card -->
             <div class="mt-4 pt-4 border-t border-slate-700/60">
               <div class="flex justify-between items-center">
-                <span class="text-xs uppercase font-semibold text-amber-300">Äiá»ƒm qSOFA:</span>
+                <span class="text-xs uppercase font-semibold text-amber-300">&#272;i&#7875;m qSOFA:</span>
                 <span id="qsofa_score" class="text-xl font-bold text-white">0 / 3</span>
               </div>
-              <p id="qsofa_alert" class="text-xs text-slate-300 mt-1">Nguy cÆ¡ tháº¥p Ä‘á»‘i vá»›i nhiá»…m khuáº©n huyáº¿t.</p>
+              <p id="qsofa_alert" class="text-xs text-slate-300 mt-1">Nguy c&#417; th&#7845;p &#273;&#7889;i v&#7899;i nhi&#7877;m khu&#7849;n huy&#7871;t.</p>
             </div>
 
             <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-400">
-              <i class="fa-solid fa-book-medical mr-1"></i> Tham chiáº¿u: Vincent JL et al. The SOFA score to describe organ dysfunction/failure. Intensive Care Med 1996.
+              <i class="fa-solid fa-book-medical mr-1"></i> Tham chi&#7871;u: Vincent JL et al. The SOFA score to describe organ dysfunction/failure. Intensive Care Med 1996.
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 2: eGFR (Má»©c lá»c cáº§u tháº­n) -->
+    <!-- TAB 2: eGFR (M&#7913;c l&#7885;c c&#7847;u th&#7853;n) -->
     <div id="tab-egfr" class="tab-content hidden">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="lg:col-span-2 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
           <div class="flex items-center justify-between pb-3 border-b border-slate-100">
             <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
               <i class="fa-solid fa-vial text-teal-600"></i>
-              TÃ­nh má»©c lá»c cáº§u tháº­n eGFR (CKD-EPI 2021) & Cockcroft-Gault
+              T&#237;nh m&#7913;c l&#7885;c c&#7847;u th&#7853;n eGFR (CKD-EPI 2021) & Cockcroft-Gault
             </h2>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- Giá»›i tÃ­nh -->
+            <!-- Gi&#7899;i t&#237;nh -->
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Giá»›i tÃ­nh</label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Gi&#7899;i t&#237;nh</label>
               <div class="grid grid-cols-2 gap-2">
                 <button type="button" onclick="setGender('male')" id="btn-male" class="p-2.5 rounded-lg border border-sky-600 bg-sky-50 text-sky-700 font-medium text-sm flex items-center justify-center gap-1.5">
                   <i class="fa-solid fa-mars"></i> Nam
                 </button>
                 <button type="button" onclick="setGender('female')" id="btn-female" class="p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 font-medium text-sm flex items-center justify-center gap-1.5">
-                  <i class="fa-solid fa-venus"></i> Ná»¯
+                  <i class="fa-solid fa-venus"></i> N&#7919;
                 </button>
               </div>
             </div>
 
-            <!-- Tuá»•i -->
+            <!-- Tu&#7893;i -->
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Tuá»•i (nÄƒm)</label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Tu&#7893;i (n&#259;m)</label>
               <input type="number" id="egfr_age" value="45" min="1" max="120" oninput="calculateEGFR()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
             </div>
 
             <!-- Creatinine -->
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Ná»“ng Ä‘á»™ Creatinine mÃ¡u</label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">N&#7891;ng &#273;&#7897; Creatinine m&#225;u</label>
               <div class="flex">
                 <input type="number" step="0.01" id="egfr_cr" value="1.0" oninput="calculateEGFR()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-l-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
                 <select id="egfr_cr_unit" onchange="convertCrUnit()" class="text-xs bg-slate-100 border border-l-0 border-slate-300 rounded-r-lg px-2 text-slate-700 outline-none">
                   <option value="mgdl">mg/dL</option>
-                  <option value="umol">Âµmol/L</option>
+                  <option value="umol">&#181;mol/L</option>
                 </select>
               </div>
             </div>
 
-            <!-- CÃ¢n náº·ng (cho Cockcroft-Gault) -->
+            <!-- C&#226;n n&#7863;ng (cho Cockcroft-Gault) -->
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">CÃ¢n náº·ng (kg) <span class="text-slate-400 font-normal">- dÃ¹ng cho Cockcroft-Gault</span></label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">C&#226;n n&#7863;ng (kg) <span class="text-slate-400 font-normal">- d&#249;ng cho Cockcroft-Gault</span></label>
               <input type="number" id="egfr_weight" value="60" oninput="calculateEGFR()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
             </div>
           </div>
 
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1">
-            <p class="font-semibold text-slate-700"><i class="fa-solid fa-circle-info text-sky-600 mr-1"></i> Ghi chÃº khuyáº¿n cÃ¡o lÃ¢m sÃ ng:</p>
-            <p>â€¢ CÃ´ng thá»©c <strong>CKD-EPI 2021 Creatinine</strong> lÃ  khuyáº¿n cÃ¡o chuáº©n toÃ n cáº§u hiá»‡n hÃ nh (khÃ´ng phá»¥ thuá»™c chá»§ng tá»™c race-free).</p>
-            <p>â€¢ <strong>Cockcroft-Gault</strong> thÆ°á»ng Ä‘Æ°á»£c Æ°u tiÃªn sá»­ dá»¥ng Ä‘á»ƒ hiá»‡u chá»‰nh liá»u lÆ°á»£ng thuá»‘c Ä‘Ã o tháº£i qua tháº­n.</p>
+            <p class="font-semibold text-slate-700"><i class="fa-solid fa-circle-info text-sky-600 mr-1"></i> Ghi ch&#250; khuy&#7871;n c&#225;o l&#226;m s&#224;ng:</p>
+            <p>&#8226; C&#244;ng th&#7913;c <strong>CKD-EPI 2021 Creatinine</strong> l&#224; khuy&#7871;n c&#225;o chu&#7849;n to&#224;n c&#7847;u hi&#7879;n h&#224;nh (kh&#244;ng ph&#7909; thu&#7897;c ch&#7911;ng t&#7897;c race-free).</p>
+            <p>&#8226; <strong>Cockcroft-Gault</strong> th&#432;&#7901;ng &#273;&#432;&#7907;c &#432;u ti&#234;n s&#7917; d&#7909;ng &#273;&#7875; hi&#7879;u ch&#7881;nh li&#7873;u l&#432;&#7907;ng thu&#7889;c &#273;&#224;o th&#7843;i qua th&#7853;n.</p>
           </div>
         </div>
 
@@ -278,74 +278,74 @@
             <div class="text-xs uppercase tracking-wider font-semibold text-teal-300 mb-1">eGFR (CKD-EPI 2021)</div>
             <div class="flex items-baseline space-x-1">
               <span id="egfr_val" class="text-5xl font-extrabold text-white">88</span>
-              <span class="text-xs text-teal-200">mL/phÃºt/1.73 mÂ²</span>
+              <span class="text-xs text-teal-200">mL/ph&#250;t/1.73 m&#178;</span>
             </div>
 
             <div class="mt-4 pt-3 border-t border-teal-800">
-              <div class="text-xs text-slate-300">PhÃ¢n loáº¡i giai Ä‘oáº¡n KDIGO:</div>
+              <div class="text-xs text-slate-300">Ph&#226;n lo&#7841;i giai &#273;o&#7841;n KDIGO:</div>
               <div id="egfr_stage" class="inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                G2 - Giáº£m nháº¹ má»©c lá»c cáº§u tháº­n
+                G2 - Gi&#7843;m nh&#7865; m&#7913;c l&#7885;c c&#7847;u th&#7853;n
               </div>
             </div>
 
             <div class="mt-4 pt-3 border-t border-teal-800">
-              <div class="text-xs text-slate-300">Äá»™ thanh tháº£i Creatinine (Cockcroft-Gault):</div>
-              <div class="text-xl font-bold text-white mt-0.5"><span id="crcl_val">79</span> <span class="text-xs font-normal text-slate-300">mL/phÃºt</span></div>
+              <div class="text-xs text-slate-300">&#272;&#7897; thanh th&#7843;i Creatinine (Cockcroft-Gault):</div>
+              <div class="text-xl font-bold text-white mt-0.5"><span id="crcl_val">79</span> <span class="text-xs font-normal text-slate-300">mL/ph&#250;t</span></div>
             </div>
 
             <div id="egfr_advice" class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300">
-              Theo dÃµi chá»©c nÄƒng tháº­n Ä‘á»‹nh ká»³ má»—i 6 - 12 thÃ¡ng náº¿u cÃ³ cÃ¡c yáº¿u tá»‘ nguy cÆ¡ (Ä‘Ã¡i thÃ¡o Ä‘Æ°á»ng, tÄƒng huyáº¿t Ã¡p).
+              Theo d&#245;i ch&#7913;c n&#259;ng th&#7853;n &#273;&#7883;nh k&#7923; m&#7895;i 6 - 12 th&#225;ng n&#7871;u c&#243; c&#225;c y&#7871;u t&#7889; nguy c&#417; (&#273;&#225;i th&#225;o &#273;&#432;&#7901;ng, t&#259;ng huy&#7871;t &#225;p).
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 3: BMI & ÄÃNH GIÃ DINH DÆ¯á» NG -->
+    <!-- TAB 3: BMI & &#272;&#193;NH GI&#193; DINH D&#431;&#7904;NG -->
     <div id="tab-bmi" class="tab-content hidden">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="lg:col-span-2 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
           <h2 class="font-bold text-slate-900 text-base flex items-center gap-2 pb-3 border-b border-slate-100">
             <i class="fa-solid fa-weight-scale text-indigo-600"></i>
-            TÃ­nh chá»‰ sá»‘ khá»‘i cÆ¡ thá»ƒ (BMI) & CÃ¢n náº·ng lÃ½ tÆ°á»Ÿng
+            T&#237;nh ch&#7881; s&#7889; kh&#7889;i c&#417; th&#7875; (BMI) & C&#226;n n&#7863;ng l&#253; t&#432;&#7903;ng
           </h2>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Chiá»u cao (cm)</label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Chi&#7873;u cao (cm)</label>
               <input type="number" id="bmi_height" value="165" min="50" max="250" oninput="calculateBMI()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">CÃ¢n náº·ng (kg)</label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">C&#226;n n&#7863;ng (kg)</label>
               <input type="number" id="bmi_weight" value="62" min="10" max="300" oninput="calculateBMI()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Giá»›i tÃ­nh</label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Gi&#7899;i t&#237;nh</label>
               <select id="bmi_gender" onchange="calculateBMI()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
                 <option value="male">Nam</option>
-                <option value="female">Ná»¯</option>
+                <option value="female">N&#7919;</option>
               </select>
             </div>
           </div>
 
-          <!-- Báº£ng tiÃªu chuáº©n so sÃ¡nh -->
+          <!-- B&#7843;ng ti&#234;u chu&#7849;n so s&#225;nh -->
           <div class="mt-4">
-            <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">Báº£ng phÃ¢n loáº¡i BMI cho ngÆ°á»i ChÃ¢u Ã (IDI & WPRO):</h3>
+            <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">B&#7843;ng ph&#226;n lo&#7841;i BMI cho ng&#432;&#7901;i Ch&#226;u &#193; (IDI & WPRO):</h3>
             <div class="border border-slate-200 rounded-xl overflow-hidden text-xs">
               <table class="w-full text-left">
                 <thead class="bg-slate-100 text-slate-700 font-semibold">
                   <tr>
-                    <th class="p-2.5">PhÃ¢n loáº¡i</th>
-                    <th class="p-2.5">BMI ChÃ¢u Ã (IDI/WPRO)</th>
-                    <th class="p-2.5">BMI Quá»‘c táº¿ (WHO)</th>
+                    <th class="p-2.5">Ph&#226;n lo&#7841;i</th>
+                    <th class="p-2.5">BMI Ch&#226;u &#193; (IDI/WPRO)</th>
+                    <th class="p-2.5">BMI Qu&#7889;c t&#7871; (WHO)</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-slate-600">
-                  <tr class="hover:bg-slate-50"><td class="p-2.5 text-blue-600 font-medium">Thiáº¿u cÃ¢n / Gáº§y</td><td class="p-2.5">&lt; 18.5</td><td class="p-2.5">&lt; 18.5</td></tr>
-                  <tr class="hover:bg-slate-50 bg-emerald-50/50"><td class="p-2.5 text-emerald-700 font-medium">BÃ¬nh thÆ°á»ng</td><td class="p-2.5 font-bold text-emerald-700">18.5 - 22.9</td><td class="p-2.5">18.5 - 24.9</td></tr>
-                  <tr class="hover:bg-slate-50"><td class="p-2.5 text-amber-600 font-medium">Tiá»n bÃ©o phÃ¬ (Thá»«a cÃ¢n)</td><td class="p-2.5">23.0 - 24.9</td><td class="p-2.5">25.0 - 29.9</td></tr>
-                  <tr class="hover:bg-slate-50"><td class="p-2.5 text-orange-600 font-medium">BÃ©o phÃ¬ Ä‘á»™ I</td><td class="p-2.5">25.0 - 29.9</td><td class="p-2.5">30.0 - 34.9</td></tr>
-                  <tr class="hover:bg-slate-50"><td class="p-2.5 text-rose-600 font-medium">BÃ©o phÃ¬ Ä‘á»™ II</td><td class="p-2.5">â‰¥ 30.0</td><td class="p-2.5">â‰¥ 35.0</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="p-2.5 text-blue-600 font-medium">Thi&#7871;u c&#226;n / G&#7847;y</td><td class="p-2.5">&lt; 18.5</td><td class="p-2.5">&lt; 18.5</td></tr>
+                  <tr class="hover:bg-slate-50 bg-emerald-50/50"><td class="p-2.5 text-emerald-700 font-medium">B&#236;nh th&#432;&#7901;ng</td><td class="p-2.5 font-bold text-emerald-700">18.5 - 22.9</td><td class="p-2.5">18.5 - 24.9</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="p-2.5 text-amber-600 font-medium">Ti&#7873;n b&#233;o ph&#236; (Th&#7915;a c&#226;n)</td><td class="p-2.5">23.0 - 24.9</td><td class="p-2.5">25.0 - 29.9</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="p-2.5 text-orange-600 font-medium">B&#233;o ph&#236; &#273;&#7897; I</td><td class="p-2.5">25.0 - 29.9</td><td class="p-2.5">30.0 - 34.9</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="p-2.5 text-rose-600 font-medium">B&#233;o ph&#236; &#273;&#7897; II</td><td class="p-2.5">&#8805; 30.0</td><td class="p-2.5">&#8805; 35.0</td></tr>
                 </tbody>
               </table>
             </div>
@@ -356,82 +356,82 @@
         <div>
           <div class="bg-gradient-to-br from-indigo-950 to-slate-900 text-white rounded-2xl p-6 shadow-xl sticky top-14 space-y-4">
             <div>
-              <div class="text-xs uppercase tracking-wider font-semibold text-indigo-300">Chá»‰ Sá»‘ Khá»‘i CÆ¡ Thá»ƒ (BMI)</div>
+              <div class="text-xs uppercase tracking-wider font-semibold text-indigo-300">Ch&#7881; S&#7889; Kh&#7889;i C&#417; Th&#7875; (BMI)</div>
               <div class="flex items-baseline space-x-2 mt-1">
                 <span id="bmi_val" class="text-5xl font-extrabold text-white">22.8</span>
-                <span class="text-sm text-slate-300">kg/mÂ²</span>
+                <span class="text-sm text-slate-300">kg/m&#178;</span>
               </div>
               <div id="bmi_badge" class="mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                Thá»ƒ tráº¡ng bÃ¬nh thÆ°á»ng
+                Th&#7875; tr&#7841;ng b&#236;nh th&#432;&#7901;ng
               </div>
             </div>
 
             <div class="pt-4 border-t border-indigo-800/60 space-y-2 text-xs">
               <div class="flex justify-between">
-                <span class="text-slate-300">CÃ¢n náº·ng lÃ½ tÆ°á»Ÿng (Devine):</span>
+                <span class="text-slate-300">C&#226;n n&#7863;ng l&#253; t&#432;&#7903;ng (Devine):</span>
                 <span id="ibw_val" class="font-bold text-white">61.0 kg</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-slate-300">Khoáº£ng cÃ¢n náº·ng há»£p lÃ½:</span>
+                <span class="text-slate-300">Kho&#7843;ng c&#226;n n&#7863;ng h&#7907;p l&#253;:</span>
                 <span id="healthy_weight_range" class="font-bold text-white">50.4 - 62.3 kg</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-slate-300">Diá»‡n tÃ­ch bá» máº·t da (BSA):</span>
-                <span id="bsa_val" class="font-bold text-white">1.68 mÂ²</span>
+                <span class="text-slate-300">Di&#7879;n t&#237;ch b&#7873; m&#7863;t da (BSA):</span>
+                <span id="bsa_val" class="font-bold text-white">1.68 m&#178;</span>
               </div>
             </div>
 
             <div id="bmi_advice" class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 leading-relaxed">
-              Báº¡n Ä‘ang duy trÃ¬ cÃ¢n náº·ng ráº¥t tá»‘t. HÃ£y tiáº¿p tá»¥c duy trÃ¬ cháº¿ Ä‘á»™ dinh dÆ°á»¡ng cÃ¢n Ä‘á»‘i vÃ  táº­p luyá»‡n thá»ƒ thao Ã­t nháº¥t 150 phÃºt/tuáº§n.
+              B&#7841;n &#273;ang duy tr&#236; c&#226;n n&#7863;ng r&#7845;t t&#7889;t. H&#227;y ti&#7871;p t&#7909;c duy tr&#236; ch&#7871; &#273;&#7897; dinh d&#432;&#7905;ng c&#226;n &#273;&#7889;i v&#224; t&#7853;p luy&#7879;n th&#7875; thao &#237;t nh&#7845;t 150 ph&#250;t/tu&#7847;n.
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 4: HUYáº¾T ÃP TRUNG BÃŒNH (MAP) -->
+    <!-- TAB 4: HUY&#7870;T &#193;P TRUNG B&#204;NH (MAP) -->
     <div id="tab-map" class="tab-content hidden">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="lg:col-span-2 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
           <h2 class="font-bold text-slate-900 text-base flex items-center gap-2 pb-3 border-b border-slate-100">
             <i class="fa-solid fa-stethoscope text-rose-600"></i>
-            Huyáº¿t Ãp Äá»™ng Máº¡ch Trung BÃ¬nh (Mean Arterial Pressure - MAP)
+            Huy&#7871;t &#193;p &#272;&#7897;ng M&#7841;ch Trung B&#236;nh (Mean Arterial Pressure - MAP)
           </h2>
-          <p class="text-xs text-slate-500">Ãp lá»±c tÆ°á»›i mÃ¡u trung bÃ¬nh trong má»™t chu chuyá»ƒn tim tá»›i cÃ¡c cÆ¡ quan sá»‘ng (nÃ£o, tháº­n, tim).</p>
+          <p class="text-xs text-slate-500">&#193;p l&#7921;c t&#432;&#7899;i m&#225;u trung b&#236;nh trong m&#7897;t chu chuy&#7875;n tim t&#7899;i c&#225;c c&#417; quan s&#7889;ng (n&#227;o, th&#7853;n, tim).</p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Huyáº¿t Ã¡p tÃ¢m thu - SBP (mmHg)</label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Huy&#7871;t &#225;p t&#226;m thu - SBP (mmHg)</label>
               <input type="number" id="map_sbp" value="120" min="30" max="300" oninput="calculateMAP()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Huyáº¿t Ã¡p tÃ¢m trÆ°Æ¡ng - DBP (mmHg)</label>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Huy&#7871;t &#225;p t&#226;m tr&#432;&#417;ng - DBP (mmHg)</label>
               <input type="number" id="map_dbp" value="80" min="20" max="200" oninput="calculateMAP()" class="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
             </div>
           </div>
 
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-2">
-            <p class="font-semibold text-slate-800">CÃ´ng thá»©c tÃ­nh toÃ¡n:</p>
-            <p class="font-mono bg-white p-2 rounded border border-slate-200 text-slate-700">MAP = [Huyáº¿t Ã¡p tÃ¢m thu + (2 Ã— Huyáº¿t Ã¡p tÃ¢m trÆ°Æ¡ng)] / 3</p>
-            <p>â€¢ Trong há»“i sá»©c sá»‘c nhiá»…m khuáº©n (Surviving Sepsis Campaign), má»¥c tiÃªu tá»‘i thiá»ƒu lÃ  duy trÃ¬ <strong>MAP â‰¥ 65 mmHg</strong> Ä‘á»ƒ Ä‘áº£m báº£o Ã¡p lá»±c tÆ°á»›i mÃ¡u vi tuáº§n hoÃ n.</p>
+            <p class="font-semibold text-slate-800">C&#244;ng th&#7913;c t&#237;nh to&#225;n:</p>
+            <p class="font-mono bg-white p-2 rounded border border-slate-200 text-slate-700">MAP = [Huy&#7871;t &#225;p t&#226;m thu + (2 &#215; Huy&#7871;t &#225;p t&#226;m tr&#432;&#417;ng)] / 3</p>
+            <p>&#8226; Trong h&#7891;i s&#7913;c s&#7889;c nhi&#7877;m khu&#7849;n (Surviving Sepsis Campaign), m&#7909;c ti&#234;u t&#7889;i thi&#7875;u l&#224; duy tr&#236; <strong>MAP &#8805; 65 mmHg</strong> &#273;&#7875; &#273;&#7843;m b&#7843;o &#225;p l&#7921;c t&#432;&#7899;i m&#225;u vi tu&#7847;n ho&#224;n.</p>
           </div>
         </div>
 
         <div>
           <div class="bg-gradient-to-br from-rose-950 to-slate-900 text-white rounded-2xl p-6 shadow-xl sticky top-14 space-y-4">
             <div>
-              <div class="text-xs uppercase tracking-wider font-semibold text-rose-300">Huyáº¿t Ãp Trung BÃ¬nh (MAP)</div>
+              <div class="text-xs uppercase tracking-wider font-semibold text-rose-300">Huy&#7871;t &#193;p Trung B&#236;nh (MAP)</div>
               <div class="flex items-baseline space-x-2 mt-1">
                 <span id="map_val" class="text-5xl font-extrabold text-white">93.3</span>
                 <span class="text-sm text-slate-300">mmHg</span>
               </div>
               <div id="map_status" class="mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                TÆ°á»›i mÃ¡u mÃ´ bÃ¬nh thÆ°á»ng (â‰¥ 65 mmHg)
+                T&#432;&#7899;i m&#225;u m&#244; b&#236;nh th&#432;&#7901;ng (&#8805; 65 mmHg)
               </div>
             </div>
 
             <div class="pt-3 border-t border-rose-800/60 text-xs text-slate-300 leading-relaxed" id="map_advice">
-              Ãp lá»±c tÆ°á»›i mÃ¡u mÃ´ tá»‘i Æ°u. ThÃ­ch há»£p duy trÃ¬ lÆ°u lÆ°á»£ng tÆ°á»›i mÃ¡u nÃ£o vÃ  tháº­n.
+              &#193;p l&#7921;c t&#432;&#7899;i m&#225;u m&#244; t&#7889;i &#432;u. Th&#237;ch h&#7907;p duy tr&#236; l&#432;u l&#432;&#7907;ng t&#432;&#7899;i m&#225;u n&#227;o v&#224; th&#7853;n.
             </div>
           </div>
         </div>
@@ -442,8 +442,8 @@
 
   <!-- Footer -->
   <footer class="bg-white border-t border-slate-200 mt-12 py-4 text-center text-xs text-slate-500">
-    <p>PhÃ¡t triá»ƒn bá»Ÿi <strong>Äáº·ng ThÃ¡i</strong> â€¢ Ná»n táº£ng Cloudflare Pages â€¢ Há»— trá»£ thá»±c hÃ nh y khoa</p>
-    <p class="text-[11px] text-slate-400 mt-0.5">LÆ°u Ã½: CÃ´ng cá»¥ chá»‰ há»— trá»£ tham kháº£o trong thá»±c hÃ nh lÃ¢m sÃ ng, khÃ´ng thay tháº¿ cho quyáº¿t Ä‘á»‹nh cháº©n Ä‘oÃ¡n vÃ  Ä‘iá»u trá»‹ cá»§a bÃ¡c sÄ©.</p>
+    <p>Ph&#225;t tri&#7875;n b&#7903;i <strong>&#272;&#7863;ng Th&#225;i</strong> &#8226; N&#7873;n t&#7843;ng Cloudflare Pages &#8226; H&#7895; tr&#7907; th&#7921;c h&#224;nh y khoa</p>
+    <p class="text-[11px] text-slate-400 mt-0.5">L&#432;u &#253;: C&#244;ng c&#7909; ch&#7881; h&#7895; tr&#7907; tham kh&#7843;o trong th&#7921;c h&#224;nh l&#226;m s&#224;ng, kh&#244;ng thay th&#7871; cho quy&#7871;t &#273;&#7883;nh ch&#7849;n &#273;o&#225;n v&#224; &#273;i&#7873;u tr&#7883; c&#7911;a b&#225;c s&#297;.</p>
   </footer>
 
   <script>
@@ -483,23 +483,23 @@
       if (total <= 1) {
         mortEl.innerText = "< 3.3%";
         mortEl.className = "text-lg font-bold text-emerald-400";
-        interpEl.innerText = "Äiá»ƒm SOFA 0-1: Chá»©c nÄƒng cÃ¡c cÆ¡ quan bÃ¬nh thÆ°á»ng hoáº·c suy giáº£m ráº¥t nháº¹.";
+        interpEl.innerText = "&#272;i&#7875;m SOFA 0-1: Ch&#7913;c n&#259;ng c&#225;c c&#417; quan b&#236;nh th&#432;&#7901;ng ho&#7863;c suy gi&#7843;m r&#7845;t nh&#7865;.";
       } else if (total <= 5) {
         mortEl.innerText = "~ 5 - 10%";
         mortEl.className = "text-lg font-bold text-emerald-400";
-        interpEl.innerText = "Äiá»ƒm SOFA 2-5: Suy táº¡ng nháº¹, cáº§n theo dÃµi sÃ¡t diá»…n tiáº¿n lÃ¢m sÃ ng.";
+        interpEl.innerText = "&#272;i&#7875;m SOFA 2-5: Suy t&#7841;ng nh&#7865;, c&#7847;n theo d&#245;i s&#225;t di&#7877;n ti&#7871;n l&#226;m s&#224;ng.";
       } else if (total <= 9) {
         mortEl.innerText = "~ 15 - 25%";
         mortEl.className = "text-lg font-bold text-amber-400";
-        interpEl.innerText = "Äiá»ƒm SOFA 6-9: Suy Ä‘a táº¡ng má»©c Ä‘á»™ trung bÃ¬nh, nguy cÆ¡ biáº¿n chá»©ng náº·ng cao.";
+        interpEl.innerText = "&#272;i&#7875;m SOFA 6-9: Suy &#273;a t&#7841;ng m&#7913;c &#273;&#7897; trung b&#236;nh, nguy c&#417; bi&#7871;n ch&#7913;ng n&#7863;ng cao.";
       } else if (total <= 12) {
         mortEl.innerText = "~ 40 - 50%";
         mortEl.className = "text-lg font-bold text-orange-400";
-        interpEl.innerText = "Äiá»ƒm SOFA 10-12: Suy Ä‘a táº¡ng náº·ng, tiÃªn lÆ°á»£ng há»“i sá»©c ráº¥t dÃ¨ dáº·t.";
+        interpEl.innerText = "&#272;i&#7875;m SOFA 10-12: Suy &#273;a t&#7841;ng n&#7863;ng, ti&#234;n l&#432;&#7907;ng h&#7891;i s&#7913;c r&#7845;t d&#232; d&#7863;t.";
       } else {
         mortEl.innerText = "> 80 - 95%";
         mortEl.className = "text-lg font-bold text-rose-400";
-        interpEl.innerText = "Äiá»ƒm SOFA â‰¥ 13: Suy Ä‘a táº¡ng Ä‘áº·c biá»‡t tráº§m trá»ng, nguy cÆ¡ tá»­ vong ráº¥t cao.";
+        interpEl.innerText = "&#272;i&#7875;m SOFA &#8805; 13: Suy &#273;a t&#7841;ng &#273;&#7863;c bi&#7879;t tr&#7847;m tr&#7885;ng, nguy c&#417; t&#7917; vong r&#7845;t cao.";
       }
     }
 
@@ -520,10 +520,10 @@
       document.getElementById('qsofa_score').innerText = q + " / 3";
       const alertEl = document.getElementById('qsofa_alert');
       if (q >= 2) {
-        alertEl.innerText = "âš ï¸ qSOFA â‰¥ 2: Nghi ngá» cao Nhiá»…m khuáº©n huyáº¿t (Sepsis). Cáº§n can thiá»‡p kháº©n vÃ  Ä‘Ã¡nh giÃ¡ chi tiáº¿t Ä‘iá»ƒm SOFA Ä‘áº§y Ä‘á»§!";
+        alertEl.innerText = "&#9888;&#65039; qSOFA &#8805; 2: Nghi ng&#7901; cao Nhi&#7877;m khu&#7849;n huy&#7871;t (Sepsis). C&#7847;n can thi&#7879;p kh&#7849;n v&#224; &#273;&#225;nh gi&#225; chi ti&#7871;t &#273;i&#7875;m SOFA &#273;&#7847;y &#273;&#7911;!";
         alertEl.className = "text-xs text-rose-300 font-semibold mt-1";
       } else {
-        alertEl.innerText = "Nguy cÆ¡ tháº¥p Ä‘á»‘i vá»›i nhiá»…m khuáº©n huyáº¿t táº¡i thá»i Ä‘iá»ƒm Ä‘Ã¡nh giÃ¡.";
+        alertEl.innerText = "Nguy c&#417; th&#7845;p &#273;&#7889;i v&#7899;i nhi&#7877;m khu&#7849;n huy&#7871;t t&#7841;i th&#7901;i &#273;i&#7875;m &#273;&#225;nh gi&#225;.";
         alertEl.className = "text-xs text-slate-300 mt-1";
       }
     }
@@ -563,7 +563,7 @@
       const unit = document.getElementById('egfr_cr_unit').value;
       const weight = parseFloat(document.getElementById('egfr_weight').value) || 60;
 
-      // Chuáº©n hoÃ¡ Cr vá» mg/dL
+      // Chu&#7849;n ho&#225; Cr v&#7873; mg/dL
       let cr_mgdl = unit === 'umol' ? cr / 88.4 : cr;
       if (cr_mgdl <= 0) return;
 
@@ -586,34 +586,34 @@
       egfr = Math.round(egfr);
       document.getElementById('egfr_val').innerText = egfr;
 
-      // PhÃ¢n loáº¡i KDIGO
+      // Ph&#226;n lo&#7841;i KDIGO
       const stageEl = document.getElementById('egfr_stage');
       const adviceEl = document.getElementById('egfr_advice');
 
       if (egfr >= 90) {
-        stageEl.innerText = "G1 - Chá»©c nÄƒng tháº­n bÃ¬nh thÆ°á»ng (â‰¥ 90)";
+        stageEl.innerText = "G1 - Ch&#7913;c n&#259;ng th&#7853;n b&#236;nh th&#432;&#7901;ng (&#8805; 90)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
-        adviceEl.innerText = "Chá»©c nÄƒng lá»c tháº­n tá»‘i Æ°u. Duy trÃ¬ cháº¿ Ä‘á»™ uá»‘ng Ä‘á»§ nÆ°á»›c vÃ  lá»‘i sá»‘ng lÃ nh máº¡nh.";
+        adviceEl.innerText = "Ch&#7913;c n&#259;ng l&#7885;c th&#7853;n t&#7889;i &#432;u. Duy tr&#236; ch&#7871; &#273;&#7897; u&#7889;ng &#273;&#7911; n&#432;&#7899;c v&#224; l&#7889;i s&#7889;ng l&#224;nh m&#7841;nh.";
       } else if (egfr >= 60) {
-        stageEl.innerText = "G2 - Giáº£m nháº¹ má»©c lá»c cáº§u tháº­n (60 - 89)";
+        stageEl.innerText = "G2 - Gi&#7843;m nh&#7865; m&#7913;c l&#7885;c c&#7847;u th&#7853;n (60 - 89)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30";
-        adviceEl.innerText = "Kiá»ƒm tra Ä‘á»‹nh ká»³ hÃ ng nÄƒm. Cáº§n lÆ°u Ã½ kiá»ƒm soÃ¡t huyáº¿t Ã¡p vÃ  Ä‘Æ°á»ng huyáº¿t náº¿u cÃ³ bá»‡nh lÃ½ ná»n.";
+        adviceEl.innerText = "Ki&#7875;m tra &#273;&#7883;nh k&#7923; h&#224;ng n&#259;m. C&#7847;n l&#432;u &#253; ki&#7875;m so&#225;t huy&#7871;t &#225;p v&#224; &#273;&#432;&#7901;ng huy&#7871;t n&#7871;u c&#243; b&#7879;nh l&#253; n&#7873;n.";
       } else if (egfr >= 45) {
-        stageEl.innerText = "G3a - Giáº£m nháº¹ Ä‘áº¿n trung bÃ¬nh (45 - 59)";
+        stageEl.innerText = "G3a - Gi&#7843;m nh&#7865; &#273;&#7871;n trung b&#236;nh (45 - 59)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
-        adviceEl.innerText = "Suy giáº£m chá»©c nÄƒng tháº­n Ä‘á»™ 3a. KhÃ¡m chuyÃªn khoa tháº­n - tiáº¿t niá»‡u, chÃº Ã½ chá»‰nh liá»u cÃ¡c thuá»‘c Ä‘á»™c cho tháº­n.";
+        adviceEl.innerText = "Suy gi&#7843;m ch&#7913;c n&#259;ng th&#7853;n &#273;&#7897; 3a. Kh&#225;m chuy&#234;n khoa th&#7853;n - ti&#7871;t ni&#7879;u, ch&#250; &#253; ch&#7881;nh li&#7873;u c&#225;c thu&#7889;c &#273;&#7897;c cho th&#7853;n.";
       } else if (egfr >= 30) {
-        stageEl.innerText = "G3b - Giáº£m trung bÃ¬nh Ä‘áº¿n náº·ng (30 - 44)";
+        stageEl.innerText = "G3b - Gi&#7843;m trung b&#236;nh &#273;&#7871;n n&#7863;ng (30 - 44)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30";
-        adviceEl.innerText = "Suy tháº­n giai Ä‘oáº¡n 3b. Cáº§n theo dÃµi sÃ¡t Ä‘iá»‡n giáº£i Ä‘á»“, can thiá»‡p Ä‘iá»u trá»‹ thiáº¿u mÃ¡u vÃ  biáº¿n chá»©ng chuyá»ƒn hÃ³a.";
+        adviceEl.innerText = "Suy th&#7853;n giai &#273;o&#7841;n 3b. C&#7847;n theo d&#245;i s&#225;t &#273;i&#7879;n gi&#7843;i &#273;&#7891;, can thi&#7879;p &#273;i&#7873;u tr&#7883; thi&#7871;u m&#225;u v&#224; bi&#7871;n ch&#7913;ng chuy&#7875;n h&#243;a.";
       } else if (egfr >= 15) {
-        stageEl.innerText = "G4 - Giáº£m náº·ng má»©c lá»c cáº§u tháº­n (15 - 29)";
+        stageEl.innerText = "G4 - Gi&#7843;m n&#7863;ng m&#7913;c l&#7885;c c&#7847;u th&#7853;n (15 - 29)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30";
-        adviceEl.innerText = "Suy tháº­n tiáº¿n triá»ƒn náº·ng (G4). Cáº§n chuáº©n bá»‹ phÆ°Æ¡ng Ã¡n Ä‘iá»u trá»‹ thay tháº¿ tháº­n (lá»c mÃ¡u / ghÃ©p tháº­n).";
+        adviceEl.innerText = "Suy th&#7853;n ti&#7871;n tri&#7875;n n&#7863;ng (G4). C&#7847;n chu&#7849;n b&#7883; ph&#432;&#417;ng &#225;n &#273;i&#7873;u tr&#7883; thay th&#7871; th&#7853;n (l&#7885;c m&#225;u / gh&#233;p th&#7853;n).";
       } else {
-        stageEl.innerText = "G5 - Suy tháº­n giai Ä‘oáº¡n cuá»‘i (< 15)";
+        stageEl.innerText = "G5 - Suy th&#7853;n giai &#273;o&#7841;n cu&#7889;i (< 15)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-rose-600/30 text-rose-200 border border-rose-500";
-        adviceEl.innerText = "Suy tháº­n giai Ä‘oáº¡n cuá»‘i (ESRD). Cáº§n chá»‰ Ä‘á»‹nh lá»c mÃ ng bá»¥ng, cháº¡y tháº­n nhÃ¢n táº¡o chu ká»³ hoáº·c ghÃ©p tháº­n.";
+        adviceEl.innerText = "Suy th&#7853;n giai &#273;o&#7841;n cu&#7889;i (ESRD). C&#7847;n ch&#7881; &#273;&#7883;nh l&#7885;c m&#224;ng b&#7909;ng, ch&#7841;y th&#7853;n nh&#226;n t&#7841;o chu k&#7923; ho&#7863;c gh&#233;p th&#7853;n.";
       }
 
       // Cockcroft-Gault
@@ -642,39 +642,39 @@
       }
       document.getElementById('ibw_val').innerText = ibw.toFixed(1) + " kg";
 
-      // Khoáº£ng cÃ¢n náº·ng há»£p lÃ½ theo IDI/WPRO (18.5 - 22.9)
+      // Kho&#7843;ng c&#226;n n&#7863;ng h&#7907;p l&#253; theo IDI/WPRO (18.5 - 22.9)
       const minW = (18.5 * h_m * h_m).toFixed(1);
       const maxW = (22.9 * h_m * h_m).toFixed(1);
       document.getElementById('healthy_weight_range').innerText = minW + " - " + maxW + " kg";
 
       // BSA (Du Bois)
       const bsa = 0.007184 * Math.pow(h_cm, 0.725) * Math.pow(w_kg, 0.425);
-      document.getElementById('bsa_val').innerText = bsa.toFixed(2) + " mÂ²";
+      document.getElementById('bsa_val').innerText = bsa.toFixed(2) + " m&#178;";
 
-      // PhÃ¢n loáº¡i ChÃ¢u Ã
+      // Ph&#226;n lo&#7841;i Ch&#226;u &#193;
       const badge = document.getElementById('bmi_badge');
       const advice = document.getElementById('bmi_advice');
 
       if (bmi < 18.5) {
-        badge.innerText = "Thiáº¿u cÃ¢n / Gáº§y (< 18.5)";
+        badge.innerText = "Thi&#7871;u c&#226;n / G&#7847;y (< 18.5)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30";
-        advice.innerText = "Báº¡n Ä‘ang thiáº¿u cÃ¢n. Cáº§n tÄƒng cÆ°á»ng bá»• sung dinh dÆ°á»¡ng giÃ u protein, calo vÃ  rÃ¨n luyá»‡n cÆ¡ báº¯p.";
+        advice.innerText = "B&#7841;n &#273;ang thi&#7871;u c&#226;n. C&#7847;n t&#259;ng c&#432;&#7901;ng b&#7893; sung dinh d&#432;&#7905;ng gi&#224;u protein, calo v&#224; r&#232;n luy&#7879;n c&#417; b&#7855;p.";
       } else if (bmi <= 22.9) {
-        badge.innerText = "Thá»ƒ tráº¡ng bÃ¬nh thÆ°á»ng (18.5 - 22.9)";
+        badge.innerText = "Th&#7875; tr&#7841;ng b&#236;nh th&#432;&#7901;ng (18.5 - 22.9)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
-        advice.innerText = "Thá»ƒ tráº¡ng ráº¥t cÃ¢n Ä‘á»‘i theo chuáº©n ngÆ°á»i ChÃ¢u Ã. Tiáº¿p tá»¥c duy trÃ¬ cháº¿ Ä‘á»™ Äƒn vÃ  táº­p thá»ƒ dá»¥c Ä‘á»u Ä‘áº·n!";
+        advice.innerText = "Th&#7875; tr&#7841;ng r&#7845;t c&#226;n &#273;&#7889;i theo chu&#7849;n ng&#432;&#7901;i Ch&#226;u &#193;. Ti&#7871;p t&#7909;c duy tr&#236; ch&#7871; &#273;&#7897; &#259;n v&#224; t&#7853;p th&#7875; d&#7909;c &#273;&#7873;u &#273;&#7863;n!";
       } else if (bmi <= 24.9) {
-        badge.innerText = "Tiá»n bÃ©o phÃ¬ / Thá»«a cÃ¢n (23.0 - 24.9)";
+        badge.innerText = "Ti&#7873;n b&#233;o ph&#236; / Th&#7915;a c&#226;n (23.0 - 24.9)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
-        advice.innerText = "Báº¯t Ä‘áº§u cÃ³ tÃ¬nh tráº¡ng thá»«a cÃ¢n. NÃªn háº¡n cháº¿ tinh bá»™t nhanh, nÆ°á»›c ngá»t vÃ  tÄƒng cÆ°á»ng váº­n Ä‘á»™ng thá»ƒ thao.";
+        advice.innerText = "B&#7855;t &#273;&#7847;u c&#243; t&#236;nh tr&#7841;ng th&#7915;a c&#226;n. N&#234;n h&#7841;n ch&#7871; tinh b&#7897;t nhanh, n&#432;&#7899;c ng&#7885;t v&#224; t&#259;ng c&#432;&#7901;ng v&#7853;n &#273;&#7897;ng th&#7875; thao.";
       } else if (bmi <= 29.9) {
-        badge.innerText = "BÃ©o phÃ¬ Ä‘á»™ I (25.0 - 29.9)";
+        badge.innerText = "B&#233;o ph&#236; &#273;&#7897; I (25.0 - 29.9)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30";
-        advice.innerText = "BÃ©o phÃ¬ Ä‘á»™ 1 lÃ m gia tÄƒng nguy cÆ¡ bá»‡nh tim máº¡ch vÃ  tiá»ƒu Ä‘Æ°á»ng tuÃ½p 2. Cáº§n xÃ¢y dá»±ng káº¿ hoáº¡ch giáº£m cÃ¢n khoa há»c.";
+        advice.innerText = "B&#233;o ph&#236; &#273;&#7897; 1 l&#224;m gia t&#259;ng nguy c&#417; b&#7879;nh tim m&#7841;ch v&#224; ti&#7875;u &#273;&#432;&#7901;ng tu&#253;p 2. C&#7847;n x&#226;y d&#7921;ng k&#7871; ho&#7841;ch gi&#7843;m c&#226;n khoa h&#7885;c.";
       } else {
-        badge.innerText = "BÃ©o phÃ¬ Ä‘á»™ II (â‰¥ 30.0)";
+        badge.innerText = "B&#233;o ph&#236; &#273;&#7897; II (&#8805; 30.0)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30";
-        advice.innerText = "BÃ©o phÃ¬ má»©c Ä‘á»™ náº·ng. Khuyáº¿n cÃ¡o nÃªn tham váº¥n bÃ¡c sÄ© dinh dÆ°á»¡ng hoáº·c chuyÃªn khoa ná»™i tiáº¿t Ä‘á»ƒ can thiá»‡p giáº£m cÃ¢n an toÃ n.";
+        advice.innerText = "B&#233;o ph&#236; m&#7913;c &#273;&#7897; n&#7863;ng. Khuy&#7871;n c&#225;o n&#234;n tham v&#7845;n b&#225;c s&#297; dinh d&#432;&#7905;ng ho&#7863;c chuy&#234;n khoa n&#7897;i ti&#7871;t &#273;&#7875; can thi&#7879;p gi&#7843;m c&#226;n an to&#224;n.";
       }
     }
 
@@ -690,17 +690,17 @@
       const adviceEl = document.getElementById('map_advice');
 
       if (map < 65) {
-        statusEl.innerText = "âš ï¸ Giáº£m tÆ°á»›i mÃ¡u cÆ¡ quan (< 65 mmHg)";
+        statusEl.innerText = "&#9888;&#65039; Gi&#7843;m t&#432;&#7899;i m&#225;u c&#417; quan (< 65 mmHg)";
         statusEl.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/30 text-rose-300 border border-rose-500";
-        adviceEl.innerText = "Ãp lá»±c tÆ°á»›i mÃ¡u mÃ´ khÃ´ng Ä‘á»§, nguy cÆ¡ thiáº¿u mÃ¡u cá»¥c bá»™ cÆ¡ quan (Ä‘áº·c biá»‡t lÃ  hoáº¡i tá»­ á»‘ng tháº­n cáº¥p). Cáº§n can thiá»‡p há»“i sá»©c tuáº§n hoÃ n (bÃ¹ dá»‹ch hoáº·c thuá»‘c váº­n máº¡ch).";
+        adviceEl.innerText = "&#193;p l&#7921;c t&#432;&#7899;i m&#225;u m&#244; kh&#244;ng &#273;&#7911;, nguy c&#417; thi&#7871;u m&#225;u c&#7909;c b&#7897; c&#417; quan (&#273;&#7863;c bi&#7879;t l&#224; ho&#7841;i t&#7917; &#7889;ng th&#7853;n c&#7845;p). C&#7847;n can thi&#7879;p h&#7891;i s&#7913;c tu&#7847;n ho&#224;n (b&#249; d&#7883;ch ho&#7863;c thu&#7889;c v&#7853;n m&#7841;ch).";
       } else if (map <= 100) {
-        statusEl.innerText = "TÆ°á»›i mÃ¡u mÃ´ tá»‘i Æ°u (65 - 100 mmHg)";
+        statusEl.innerText = "T&#432;&#7899;i m&#225;u m&#244; t&#7889;i &#432;u (65 - 100 mmHg)";
         statusEl.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
-        adviceEl.innerText = "Ãp lá»±c tÆ°á»›i mÃ¡u mÃ´ tá»‘i Æ°u. Äáº£m báº£o cung lÆ°á»£ng mÃ¡u cho nÃ£o, tháº­n vÃ  cÃ¡c táº¡ng quan trá»ng.";
+        adviceEl.innerText = "&#193;p l&#7921;c t&#432;&#7899;i m&#225;u m&#244; t&#7889;i &#432;u. &#272;&#7843;m b&#7843;o cung l&#432;&#7907;ng m&#225;u cho n&#227;o, th&#7853;n v&#224; c&#225;c t&#7841;ng quan tr&#7885;ng.";
       } else {
-        statusEl.innerText = "Huyáº¿t Ã¡p trung bÃ¬nh cao (> 100 mmHg)";
+        statusEl.innerText = "Huy&#7871;t &#225;p trung b&#236;nh cao (> 100 mmHg)";
         statusEl.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
-        adviceEl.innerText = "TÄƒng huyáº¿t Ã¡p. Cáº§n Ä‘Ã¡nh giÃ¡ thÃªm tiá»n sá»­ tim máº¡ch vÃ  kiá»ƒm tra nguy cÆ¡ tá»•n thÆ°Æ¡ng cÆ¡ quan Ä‘Ã­ch do tÄƒng huyáº¿t Ã¡p kÃ©o dÃ i.";
+        adviceEl.innerText = "T&#259;ng huy&#7871;t &#225;p. C&#7847;n &#273;&#225;nh gi&#225; th&#234;m ti&#7873;n s&#7917; tim m&#7841;ch v&#224; ki&#7875;m tra nguy c&#417; t&#7893;n th&#432;&#417;ng c&#417; quan &#273;&#237;ch do t&#259;ng huy&#7871;t &#225;p k&#233;o d&#224;i.";
       }
     }
 
