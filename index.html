@@ -483,23 +483,23 @@
       if (total <= 1) {
         mortEl.innerText = "< 3.3%";
         mortEl.className = "text-lg font-bold text-emerald-400";
-        interpEl.innerText = "&#272;i&#7875;m SOFA 0-1: Ch&#7913;c n&#259;ng c&#225;c c&#417; quan b&#236;nh th&#432;&#7901;ng ho&#7863;c suy gi&#7843;m r&#7845;t nh&#7865;.";
+        interpEl.innerHTML = "&#272;i&#7875;m SOFA 0-1: Ch&#7913;c n&#259;ng c&#225;c c&#417; quan b&#236;nh th&#432;&#7901;ng ho&#7863;c suy gi&#7843;m r&#7845;t nh&#7865;.";
       } else if (total <= 5) {
         mortEl.innerText = "~ 5 - 10%";
         mortEl.className = "text-lg font-bold text-emerald-400";
-        interpEl.innerText = "&#272;i&#7875;m SOFA 2-5: Suy t&#7841;ng nh&#7865;, c&#7847;n theo d&#245;i s&#225;t di&#7877;n ti&#7871;n l&#226;m s&#224;ng.";
+        interpEl.innerHTML = "&#272;i&#7875;m SOFA 2-5: Suy t&#7841;ng nh&#7865;, c&#7847;n theo d&#245;i s&#225;t di&#7877;n ti&#7871;n l&#226;m s&#224;ng.";
       } else if (total <= 9) {
         mortEl.innerText = "~ 15 - 25%";
         mortEl.className = "text-lg font-bold text-amber-400";
-        interpEl.innerText = "&#272;i&#7875;m SOFA 6-9: Suy &#273;a t&#7841;ng m&#7913;c &#273;&#7897; trung b&#236;nh, nguy c&#417; bi&#7871;n ch&#7913;ng n&#7863;ng cao.";
+        interpEl.innerHTML = "&#272;i&#7875;m SOFA 6-9: Suy &#273;a t&#7841;ng m&#7913;c &#273;&#7897; trung b&#236;nh, nguy c&#417; bi&#7871;n ch&#7913;ng n&#7863;ng cao.";
       } else if (total <= 12) {
         mortEl.innerText = "~ 40 - 50%";
         mortEl.className = "text-lg font-bold text-orange-400";
-        interpEl.innerText = "&#272;i&#7875;m SOFA 10-12: Suy &#273;a t&#7841;ng n&#7863;ng, ti&#234;n l&#432;&#7907;ng h&#7891;i s&#7913;c r&#7845;t d&#232; d&#7863;t.";
+        interpEl.innerHTML = "&#272;i&#7875;m SOFA 10-12: Suy &#273;a t&#7841;ng n&#7863;ng, ti&#234;n l&#432;&#7907;ng h&#7891;i s&#7913;c r&#7845;t d&#232; d&#7863;t.";
       } else {
         mortEl.innerText = "> 80 - 95%";
         mortEl.className = "text-lg font-bold text-rose-400";
-        interpEl.innerText = "&#272;i&#7875;m SOFA &#8805; 13: Suy &#273;a t&#7841;ng &#273;&#7863;c bi&#7879;t tr&#7847;m tr&#7885;ng, nguy c&#417; t&#7917; vong r&#7845;t cao.";
+        interpEl.innerHTML = "&#272;i&#7875;m SOFA &#8805; 13: Suy &#273;a t&#7841;ng &#273;&#7863;c bi&#7879;t tr&#7847;m tr&#7885;ng, nguy c&#417; t&#7917; vong r&#7845;t cao.";
       }
     }
 
@@ -520,10 +520,10 @@
       document.getElementById('qsofa_score').innerText = q + " / 3";
       const alertEl = document.getElementById('qsofa_alert');
       if (q >= 2) {
-        alertEl.innerText = "&#9888;&#65039; qSOFA &#8805; 2: Nghi ng&#7901; cao Nhi&#7877;m khu&#7849;n huy&#7871;t (Sepsis). C&#7847;n can thi&#7879;p kh&#7849;n v&#224; &#273;&#225;nh gi&#225; chi ti&#7871;t &#273;i&#7875;m SOFA &#273;&#7847;y &#273;&#7911;!";
+        alertEl.innerHTML = "&#9888;&#65039; qSOFA &#8805; 2: Nghi ng&#7901; cao Nhi&#7877;m khu&#7849;n huy&#7871;t (Sepsis). C&#7847;n can thi&#7879;p kh&#7849;n v&#224; &#273;&#225;nh gi&#225; chi ti&#7871;t &#273;i&#7875;m SOFA &#273;&#7847;y &#273;&#7911;!";
         alertEl.className = "text-xs text-rose-300 font-semibold mt-1";
       } else {
-        alertEl.innerText = "Nguy c&#417; th&#7845;p &#273;&#7889;i v&#7899;i nhi&#7877;m khu&#7849;n huy&#7871;t t&#7841;i th&#7901;i &#273;i&#7875;m &#273;&#225;nh gi&#225;.";
+        alertEl.innerHTML = "Nguy c&#417; th&#7845;p &#273;&#7889;i v&#7899;i nhi&#7877;m khu&#7849;n huy&#7871;t t&#7841;i th&#7901;i &#273;i&#7875;m &#273;&#225;nh gi&#225;.";
         alertEl.className = "text-xs text-slate-300 mt-1";
       }
     }
@@ -591,29 +591,29 @@
       const adviceEl = document.getElementById('egfr_advice');
 
       if (egfr >= 90) {
-        stageEl.innerText = "G1 - Ch&#7913;c n&#259;ng th&#7853;n b&#236;nh th&#432;&#7901;ng (&#8805; 90)";
+        stageEl.innerHTML = "G1 - Ch&#7913;c n&#259;ng th&#7853;n b&#236;nh th&#432;&#7901;ng (&#8805; 90)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
-        adviceEl.innerText = "Ch&#7913;c n&#259;ng l&#7885;c th&#7853;n t&#7889;i &#432;u. Duy tr&#236; ch&#7871; &#273;&#7897; u&#7889;ng &#273;&#7911; n&#432;&#7899;c v&#224; l&#7889;i s&#7889;ng l&#224;nh m&#7841;nh.";
+        adviceEl.innerHTML = "Ch&#7913;c n&#259;ng l&#7885;c th&#7853;n t&#7889;i &#432;u. Duy tr&#236; ch&#7871; &#273;&#7897; u&#7889;ng &#273;&#7911; n&#432;&#7899;c v&#224; l&#7889;i s&#7889;ng l&#224;nh m&#7841;nh.";
       } else if (egfr >= 60) {
-        stageEl.innerText = "G2 - Gi&#7843;m nh&#7865; m&#7913;c l&#7885;c c&#7847;u th&#7853;n (60 - 89)";
+        stageEl.innerHTML = "G2 - Gi&#7843;m nh&#7865; m&#7913;c l&#7885;c c&#7847;u th&#7853;n (60 - 89)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30";
-        adviceEl.innerText = "Ki&#7875;m tra &#273;&#7883;nh k&#7923; h&#224;ng n&#259;m. C&#7847;n l&#432;u &#253; ki&#7875;m so&#225;t huy&#7871;t &#225;p v&#224; &#273;&#432;&#7901;ng huy&#7871;t n&#7871;u c&#243; b&#7879;nh l&#253; n&#7873;n.";
+        adviceEl.innerHTML = "Ki&#7875;m tra &#273;&#7883;nh k&#7923; h&#224;ng n&#259;m. C&#7847;n l&#432;u &#253; ki&#7875;m so&#225;t huy&#7871;t &#225;p v&#224; &#273;&#432;&#7901;ng huy&#7871;t n&#7871;u c&#243; b&#7879;nh l&#253; n&#7873;n.";
       } else if (egfr >= 45) {
-        stageEl.innerText = "G3a - Gi&#7843;m nh&#7865; &#273;&#7871;n trung b&#236;nh (45 - 59)";
+        stageEl.innerHTML = "G3a - Gi&#7843;m nh&#7865; &#273;&#7871;n trung b&#236;nh (45 - 59)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
-        adviceEl.innerText = "Suy gi&#7843;m ch&#7913;c n&#259;ng th&#7853;n &#273;&#7897; 3a. Kh&#225;m chuy&#234;n khoa th&#7853;n - ti&#7871;t ni&#7879;u, ch&#250; &#253; ch&#7881;nh li&#7873;u c&#225;c thu&#7889;c &#273;&#7897;c cho th&#7853;n.";
+        adviceEl.innerHTML = "Suy gi&#7843;m ch&#7913;c n&#259;ng th&#7853;n &#273;&#7897; 3a. Kh&#225;m chuy&#234;n khoa th&#7853;n - ti&#7871;t ni&#7879;u, ch&#250; &#253; ch&#7881;nh li&#7873;u c&#225;c thu&#7889;c &#273;&#7897;c cho th&#7853;n.";
       } else if (egfr >= 30) {
-        stageEl.innerText = "G3b - Gi&#7843;m trung b&#236;nh &#273;&#7871;n n&#7863;ng (30 - 44)";
+        stageEl.innerHTML = "G3b - Gi&#7843;m trung b&#236;nh &#273;&#7871;n n&#7863;ng (30 - 44)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30";
-        adviceEl.innerText = "Suy th&#7853;n giai &#273;o&#7841;n 3b. C&#7847;n theo d&#245;i s&#225;t &#273;i&#7879;n gi&#7843;i &#273;&#7891;, can thi&#7879;p &#273;i&#7873;u tr&#7883; thi&#7871;u m&#225;u v&#224; bi&#7871;n ch&#7913;ng chuy&#7875;n h&#243;a.";
+        adviceEl.innerHTML = "Suy th&#7853;n giai &#273;o&#7841;n 3b. C&#7847;n theo d&#245;i s&#225;t &#273;i&#7879;n gi&#7843;i &#273;&#7891;, can thi&#7879;p &#273;i&#7873;u tr&#7883; thi&#7871;u m&#225;u v&#224; bi&#7871;n ch&#7913;ng chuy&#7875;n h&#243;a.";
       } else if (egfr >= 15) {
-        stageEl.innerText = "G4 - Gi&#7843;m n&#7863;ng m&#7913;c l&#7885;c c&#7847;u th&#7853;n (15 - 29)";
+        stageEl.innerHTML = "G4 - Gi&#7843;m n&#7863;ng m&#7913;c l&#7885;c c&#7847;u th&#7853;n (15 - 29)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30";
-        adviceEl.innerText = "Suy th&#7853;n ti&#7871;n tri&#7875;n n&#7863;ng (G4). C&#7847;n chu&#7849;n b&#7883; ph&#432;&#417;ng &#225;n &#273;i&#7873;u tr&#7883; thay th&#7871; th&#7853;n (l&#7885;c m&#225;u / gh&#233;p th&#7853;n).";
+        adviceEl.innerHTML = "Suy th&#7853;n ti&#7871;n tri&#7875;n n&#7863;ng (G4). C&#7847;n chu&#7849;n b&#7883; ph&#432;&#417;ng &#225;n &#273;i&#7873;u tr&#7883; thay th&#7871; th&#7853;n (l&#7885;c m&#225;u / gh&#233;p th&#7853;n).";
       } else {
-        stageEl.innerText = "G5 - Suy th&#7853;n giai &#273;o&#7841;n cu&#7889;i (< 15)";
+        stageEl.innerHTML = "G5 - Suy th&#7853;n giai &#273;o&#7841;n cu&#7889;i (< 15)";
         stageEl.className = "inline-block mt-1 px-3 py-1 rounded-full text-xs font-bold bg-rose-600/30 text-rose-200 border border-rose-500";
-        adviceEl.innerText = "Suy th&#7853;n giai &#273;o&#7841;n cu&#7889;i (ESRD). C&#7847;n ch&#7881; &#273;&#7883;nh l&#7885;c m&#224;ng b&#7909;ng, ch&#7841;y th&#7853;n nh&#226;n t&#7841;o chu k&#7923; ho&#7863;c gh&#233;p th&#7853;n.";
+        adviceEl.innerHTML = "Suy th&#7853;n giai &#273;o&#7841;n cu&#7889;i (ESRD). C&#7847;n ch&#7881; &#273;&#7883;nh l&#7885;c m&#224;ng b&#7909;ng, ch&#7841;y th&#7853;n nh&#226;n t&#7841;o chu k&#7923; ho&#7863;c gh&#233;p th&#7853;n.";
       }
 
       // Cockcroft-Gault
@@ -656,25 +656,25 @@
       const advice = document.getElementById('bmi_advice');
 
       if (bmi < 18.5) {
-        badge.innerText = "Thi&#7871;u c&#226;n / G&#7847;y (< 18.5)";
+        badge.innerHTML = "Thi&#7871;u c&#226;n / G&#7847;y (< 18.5)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30";
-        advice.innerText = "B&#7841;n &#273;ang thi&#7871;u c&#226;n. C&#7847;n t&#259;ng c&#432;&#7901;ng b&#7893; sung dinh d&#432;&#7905;ng gi&#224;u protein, calo v&#224; r&#232;n luy&#7879;n c&#417; b&#7855;p.";
+        advice.innerHTML = "B&#7841;n &#273;ang thi&#7871;u c&#226;n. C&#7847;n t&#259;ng c&#432;&#7901;ng b&#7893; sung dinh d&#432;&#7905;ng gi&#224;u protein, calo v&#224; r&#232;n luy&#7879;n c&#417; b&#7855;p.";
       } else if (bmi <= 22.9) {
-        badge.innerText = "Th&#7875; tr&#7841;ng b&#236;nh th&#432;&#7901;ng (18.5 - 22.9)";
+        badge.innerHTML = "Th&#7875; tr&#7841;ng b&#236;nh th&#432;&#7901;ng (18.5 - 22.9)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
-        advice.innerText = "Th&#7875; tr&#7841;ng r&#7845;t c&#226;n &#273;&#7889;i theo chu&#7849;n ng&#432;&#7901;i Ch&#226;u &#193;. Ti&#7871;p t&#7909;c duy tr&#236; ch&#7871; &#273;&#7897; &#259;n v&#224; t&#7853;p th&#7875; d&#7909;c &#273;&#7873;u &#273;&#7863;n!";
+        advice.innerHTML = "Th&#7875; tr&#7841;ng r&#7845;t c&#226;n &#273;&#7889;i theo chu&#7849;n ng&#432;&#7901;i Ch&#226;u &#193;. Ti&#7871;p t&#7909;c duy tr&#236; ch&#7871; &#273;&#7897; &#259;n v&#224; t&#7853;p th&#7875; d&#7909;c &#273;&#7873;u &#273;&#7863;n!";
       } else if (bmi <= 24.9) {
-        badge.innerText = "Ti&#7873;n b&#233;o ph&#236; / Th&#7915;a c&#226;n (23.0 - 24.9)";
+        badge.innerHTML = "Ti&#7873;n b&#233;o ph&#236; / Th&#7915;a c&#226;n (23.0 - 24.9)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
-        advice.innerText = "B&#7855;t &#273;&#7847;u c&#243; t&#236;nh tr&#7841;ng th&#7915;a c&#226;n. N&#234;n h&#7841;n ch&#7871; tinh b&#7897;t nhanh, n&#432;&#7899;c ng&#7885;t v&#224; t&#259;ng c&#432;&#7901;ng v&#7853;n &#273;&#7897;ng th&#7875; thao.";
+        advice.innerHTML = "B&#7855;t &#273;&#7847;u c&#243; t&#236;nh tr&#7841;ng th&#7915;a c&#226;n. N&#234;n h&#7841;n ch&#7871; tinh b&#7897;t nhanh, n&#432;&#7899;c ng&#7885;t v&#224; t&#259;ng c&#432;&#7901;ng v&#7853;n &#273;&#7897;ng th&#7875; thao.";
       } else if (bmi <= 29.9) {
-        badge.innerText = "B&#233;o ph&#236; &#273;&#7897; I (25.0 - 29.9)";
+        badge.innerHTML = "B&#233;o ph&#236; &#273;&#7897; I (25.0 - 29.9)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30";
-        advice.innerText = "B&#233;o ph&#236; &#273;&#7897; 1 l&#224;m gia t&#259;ng nguy c&#417; b&#7879;nh tim m&#7841;ch v&#224; ti&#7875;u &#273;&#432;&#7901;ng tu&#253;p 2. C&#7847;n x&#226;y d&#7921;ng k&#7871; ho&#7841;ch gi&#7843;m c&#226;n khoa h&#7885;c.";
+        advice.innerHTML = "B&#233;o ph&#236; &#273;&#7897; 1 l&#224;m gia t&#259;ng nguy c&#417; b&#7879;nh tim m&#7841;ch v&#224; ti&#7875;u &#273;&#432;&#7901;ng tu&#253;p 2. C&#7847;n x&#226;y d&#7921;ng k&#7871; ho&#7841;ch gi&#7843;m c&#226;n khoa h&#7885;c.";
       } else {
-        badge.innerText = "B&#233;o ph&#236; &#273;&#7897; II (&#8805; 30.0)";
+        badge.innerHTML = "B&#233;o ph&#236; &#273;&#7897; II (&#8805; 30.0)";
         badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30";
-        advice.innerText = "B&#233;o ph&#236; m&#7913;c &#273;&#7897; n&#7863;ng. Khuy&#7871;n c&#225;o n&#234;n tham v&#7845;n b&#225;c s&#297; dinh d&#432;&#7905;ng ho&#7863;c chuy&#234;n khoa n&#7897;i ti&#7871;t &#273;&#7875; can thi&#7879;p gi&#7843;m c&#226;n an to&#224;n.";
+        advice.innerHTML = "B&#233;o ph&#236; m&#7913;c &#273;&#7897; n&#7863;ng. Khuy&#7871;n c&#225;o n&#234;n tham v&#7845;n b&#225;c s&#297; dinh d&#432;&#7905;ng ho&#7863;c chuy&#234;n khoa n&#7897;i ti&#7871;t &#273;&#7875; can thi&#7879;p gi&#7843;m c&#226;n an to&#224;n.";
       }
     }
 
@@ -690,17 +690,17 @@
       const adviceEl = document.getElementById('map_advice');
 
       if (map < 65) {
-        statusEl.innerText = "&#9888;&#65039; Gi&#7843;m t&#432;&#7899;i m&#225;u c&#417; quan (< 65 mmHg)";
+        statusEl.innerHTML = "&#9888;&#65039; Gi&#7843;m t&#432;&#7899;i m&#225;u c&#417; quan (< 65 mmHg)";
         statusEl.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/30 text-rose-300 border border-rose-500";
-        adviceEl.innerText = "&#193;p l&#7921;c t&#432;&#7899;i m&#225;u m&#244; kh&#244;ng &#273;&#7911;, nguy c&#417; thi&#7871;u m&#225;u c&#7909;c b&#7897; c&#417; quan (&#273;&#7863;c bi&#7879;t l&#224; ho&#7841;i t&#7917; &#7889;ng th&#7853;n c&#7845;p). C&#7847;n can thi&#7879;p h&#7891;i s&#7913;c tu&#7847;n ho&#224;n (b&#249; d&#7883;ch ho&#7863;c thu&#7889;c v&#7853;n m&#7841;ch).";
+        adviceEl.innerHTML = "&#193;p l&#7921;c t&#432;&#7899;i m&#225;u m&#244; kh&#244;ng &#273;&#7911;, nguy c&#417; thi&#7871;u m&#225;u c&#7909;c b&#7897; c&#417; quan (&#273;&#7863;c bi&#7879;t l&#224; ho&#7841;i t&#7917; &#7889;ng th&#7853;n c&#7845;p). C&#7847;n can thi&#7879;p h&#7891;i s&#7913;c tu&#7847;n ho&#224;n (b&#249; d&#7883;ch ho&#7863;c thu&#7889;c v&#7853;n m&#7841;ch).";
       } else if (map <= 100) {
-        statusEl.innerText = "T&#432;&#7899;i m&#225;u m&#244; t&#7889;i &#432;u (65 - 100 mmHg)";
+        statusEl.innerHTML = "T&#432;&#7899;i m&#225;u m&#244; t&#7889;i &#432;u (65 - 100 mmHg)";
         statusEl.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
-        adviceEl.innerText = "&#193;p l&#7921;c t&#432;&#7899;i m&#225;u m&#244; t&#7889;i &#432;u. &#272;&#7843;m b&#7843;o cung l&#432;&#7907;ng m&#225;u cho n&#227;o, th&#7853;n v&#224; c&#225;c t&#7841;ng quan tr&#7885;ng.";
+        adviceEl.innerHTML = "&#193;p l&#7921;c t&#432;&#7899;i m&#225;u m&#244; t&#7889;i &#432;u. &#272;&#7843;m b&#7843;o cung l&#432;&#7907;ng m&#225;u cho n&#227;o, th&#7853;n v&#224; c&#225;c t&#7841;ng quan tr&#7885;ng.";
       } else {
-        statusEl.innerText = "Huy&#7871;t &#225;p trung b&#236;nh cao (> 100 mmHg)";
+        statusEl.innerHTML = "Huy&#7871;t &#225;p trung b&#236;nh cao (> 100 mmHg)";
         statusEl.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
-        adviceEl.innerText = "T&#259;ng huy&#7871;t &#225;p. C&#7847;n &#273;&#225;nh gi&#225; th&#234;m ti&#7873;n s&#7917; tim m&#7841;ch v&#224; ki&#7875;m tra nguy c&#417; t&#7893;n th&#432;&#417;ng c&#417; quan &#273;&#237;ch do t&#259;ng huy&#7871;t &#225;p k&#233;o d&#224;i.";
+        adviceEl.innerHTML = "T&#259;ng huy&#7871;t &#225;p. C&#7847;n &#273;&#225;nh gi&#225; th&#234;m ti&#7873;n s&#7917; tim m&#7841;ch v&#224; ki&#7875;m tra nguy c&#417; t&#7893;n th&#432;&#417;ng c&#417; quan &#273;&#237;ch do t&#259;ng huy&#7871;t &#225;p k&#233;o d&#224;i.";
       }
     }
 
